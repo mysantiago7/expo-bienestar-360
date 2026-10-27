@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Informe logístico · Expo Bienestar 360</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf6ff;--card:#fff;--ink:#241a3a;--mut:#645a7c;--pri:#6d28d9;--acc:#f97316;--soft:#efe5ff;--line:#e0d4f5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150e24;--card:#1f1635;--ink:#f1eafc;--mut:#b5a8d0;--pri:#a78bfa;--acc:#fb923c;--soft:#2c1f4a;--line:#3a2b5e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#150e24;--card:#1f1635;--ink:#f1eafc;--mut:#b5a8d0;--pri:#a78bfa;--acc:#fb923c;--soft:#2c1f4a;--line:#3a2b5e;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;gap:4px;align-items:center;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+nav b{color:var(--pri);margin-right:10px;font-family:Fraunces,serif}nav a{color:var(--mut);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:14px}nav a:hover{background:var(--soft);color:var(--ink)}
+nav button{margin-left:auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 12px;cursor:pointer}
+.hero{padding:70px 20px 56px;text-align:center;color:#fff;background:radial-gradient(circle at 20% 20%,#f97316aa,transparent 40%),linear-gradient(135deg,#4c1d95,#6d28d9 60%,#be185d)}
+.hero h1{font-size:clamp(32px,6.5vw,60px);font-weight:800;max-width:900px;margin:0 auto 12px}.hero p{max-width:700px;margin:0 auto 14px;opacity:.93}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}.stat{background:#ffffff1f;border:1px solid #ffffff4d;border-radius:18px;padding:14px 24px;min-width:120px}.stat b{display:block;font-size:34px;font-family:Fraunces,serif}.stat span{font-size:13px;opacity:.9}
+.wrap{max-width:1050px;margin:0 auto;padding:54px 20px 0}.lead{color:var(--mut);max-width:760px}
+h2{font-size:clamp(24px,4vw,34px);color:var(--pri)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px}
+.tl{display:flex;gap:14px;overflow-x:auto;padding:10px 2px 16px;scroll-snap-type:x mandatory}
+.tl button{flex:0 0 190px;scroll-snap-align:start;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px;color:var(--ink);font:inherit;cursor:pointer;transition:.2s}
+.tl button.on,.tl button:hover{border-color:var(--acc);transform:translateY(-3px);background:var(--soft)}.tl small{color:var(--acc);font-weight:700}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:99px;cursor:pointer;font:inherit}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+ul{padding-left:20px;margin:8px 0}li{margin:5px 0}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.steps button{flex:1 1 130px;padding:14px 8px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.steps button.on{background:linear-gradient(135deg,var(--pri),var(--acc));color:#fff;border-color:transparent}.steps span{display:block;font-size:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.chip{padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font:inherit;font-size:14px}.chip.on{background:var(--pri);color:#fff}
+.act{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:14px}
+.a{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--pri);border-radius:14px;padding:14px}.a.p{border-top-color:var(--acc)}.a small{color:var(--mut)}.a b{display:block;margin:4px 0}
+.badge{float:right;font-size:12px;padding:2px 10px;border-radius:99px;background:var(--soft);color:var(--pri);font-weight:700}.a.p .badge{background:#f9731626;color:var(--acc)}
+.sc{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--pri)}
+input[type=range]{width:100%;accent-color:var(--acc)}label{font-size:14px;color:var(--mut);display:block;margin-top:10px}
+.sw{display:flex;align-items:center;gap:10px;margin:8px 0;cursor:pointer}.sw input{width:20px;height:20px;accent-color:var(--pri)}
+.meter{height:18px;border-radius:99px;background:var(--soft);overflow:hidden;margin:6px 0}.meter i{display:block;height:100%;transition:width .4s}
+.res{font-size:24px;font-weight:800;margin-top:12px}.pos{color:#16a34a}.neg{color:#dc2626}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.fl{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;margin:8px 0;min-height:70px;transition:.25s}.fl:hover{border-color:var(--pri)}
+.fl.g{border-left:6px solid #16a34a}.fl.m{border-left:6px solid var(--acc)}.fl small{color:var(--mut)}.fl div{display:none;margin-top:8px;color:var(--mut)}.fl.open div{display:block}
+.risk{border-left:5px solid var(--acc);padding:8px 14px;background:var(--soft);border-radius:10px;margin:8px 0}
+.concl{counter-reset:c;list-style:none;padding:0}.concl li{counter-increment:c;display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}.concl li::before{content:counter(c);flex:0 0 30px;height:30px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:700}
+footer{margin-top:60px;padding:36px 20px;background:linear-gradient(135deg,#4c1d95,#be185d);color:#fff;text-align:center}footer p{margin:4px auto;max-width:700px}
+</style></head><body>
+<nav><b>Expo Bienestar 360</b><a href="#l">Línea de tiempo</a><a href="#e">Experiencia</a><a href="#r">Recorrido</a><a href="#pr">Programación</a><a href="#d">Datos</a><a href="#b">Balance</a><a href="#cn">Conclusiones</a><button id="th" aria-label="Cambiar tema">◐</button></nav>
+<header class="hero"><p>SENA · Centro Internacional de Producción Limpia Lope · Tecnólogo en Gestión Logística</p>
+<h1>Expo Bienestar 360: nuestra experiencia como apoyo logístico</h1>
+<p>Tres días, una casona del siglo XVII y muchas tareas pequeñas hechas a tiempo. Un informe interactivo de lo que vivimos en Pasto, del 16 al 18 de octubre de 2026.</p>
+<p><b>Elaborado por Diana Carmela Miramag · Erika Alexandra Luna · Santiago Maya</b></p>
+<div class="stats"><div class="stat"><b data-n="3">0</b><span>días de feria</span></div><div class="stat"><b data-n="22">0</b><span>actividades en la app</span></div><div class="stat"><b data-n="17">0</b><span>gratuitas</span></div><div class="stat"><b data-n="5">0</b><span>pagas</span></div></div></header>
+
+<section class="wrap" id="l"><h2>La historia de la feria</h2>
+<p class="lead">Expo Bienestar 360 mira el bienestar completo: cuerpo, mente, emociones, alimentación, naturaleza y comunidad. Toca cada hito.</p>
+<div class="tl" id="tl"></div><div class="card" id="tld"></div></section>
+
+<section class="wrap" id="e"><h2>Nuestra experiencia, día por día</h2>
+<div class="card"><div class="tabs" id="dt"></div><div id="db"></div></div>
+<div class="card"><h3>Funciones del equipo de logística</h3><div class="chips" id="fc"></div><p id="fd" style="color:var(--mut)"></p></div></section>
+
+<section class="wrap" id="r"><h2>El recorrido de una persona por la Casona</h2>
+<p class="lead">Así se movía un visitante y esto hacíamos en cada punto.</p>
+<div class="card"><div class="steps" id="st"></div><div id="sd"></div></div></section>
+
+<section class="wrap" id="pr"><h2>Explora la programación</h2>
+<p class="lead">Las 22 actividades registradas en la app SP Eventos. Filtra por día y por valor.</p>
+<div class="chips" id="f1"></div><div class="chips" id="f2"></div><div class="act" id="act"></div></section>
+
+<section class="wrap" id="d"><h2>Datos clave</h2>
+<div class="card sc"><h3>Primera vs. segunda edición</h3><table id="cmp"></table></div>
+<div class="card"><h3>Simulador de ingresos y rentabilidad</h3>
+<p class="lead">Ejercicio académico con valores imaginarios: dos días, 40 expositores, 2.500 visitantes. Costos base: $60.500.000. Prueba qué pasa cuando la entrada es gratuita, como en la feria real.</p>
+<label class="sw"><input type="checkbox" id="bo" checked> Cobrar boletería (2.500 entradas × $8.000)</label>
+<label>Tarifa por stand (40 stands): <b id="sv"></b></label><input type="range" id="sp" min="650000" max="1300000" step="50000" value="700000">
+<label>Aliados patrocinadores principales a $4.000.000: <b id="pv"></b></label><input type="range" id="pa" min="0" max="8" value="3">
+<label>Cupos pagos en talleres a $50.000: <b id="tv"></b></label><input type="range" id="tc" min="0" max="300" step="10" value="150">
+<div class="meter"><i id="mi" style="background:#16a34a"></i></div><div class="meter"><i id="mc" style="background:var(--acc)"></i></div>
+<p style="font-size:13px;color:var(--mut)">Verde: ingresos · Naranja: costos ($60,5 millones). Incluye publicidad y activaciones ($6 millones) y comisión por ventas ($4,5 millones).</p>
+<div class="res" id="rs"></div><p id="rt" style="color:var(--mut)"></p></div></section>
+
+<section class="wrap" id="b"><h2>Balance: lo que salió bien y lo que podemos mejorar</h2><p class="lead">Toca cada tarjeta para ver la idea completa.</p>
+<div class="two"><div><h3>✅ Salió bien</h3><div id="gd"></div></div><div><h3>🔧 Se puede mejorar</h3><div id="mj"></div></div></div>
+<div class="card"><h3>Riesgos que identificamos</h3><div id="rk"></div></div></section>
+
+<section class="wrap" id="cn"><h2>Conclusiones</h2><ul class="concl" id="cc"></ul>
+<div class="card"><h3>Lo que aprendimos</h3><p>La logística se nota cuando algo falla y casi no se nota cuando todo sale bien. Los datos de las personas, como el celular o el QR, son tan importantes como el montaje físico. Y trabajar por funciones claras, con una persona que coordina, hace que el equipo responda más rápido.</p></div></section>
+
+<footer><h3>Gracias por recorrer Expo Bienestar 360</h3><p><b>Elaborado por Diana Carmela Miramag, Erika Alexandra Luna y Santiago Maya</b></p><p>Tecnólogo en Gestión Logística · SENA Regional Nariño · Pasto, 21 de octubre de 2026</p><p style="opacity:.85;font-size:13px">Instagram @expobienestar360 · Algunas cifras vienen de la organización y no se pudieron confirmar con otra fuente. Los costos son un ejercicio académico.</p></footer>
+
+<script>
+const $=s=>document.querySelector(s),E=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e};
+$("#th").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"};
+document.querySelectorAll("[data-n]").forEach(e=>{const n=+e.dataset.n;let i=0;const t=setInterval(()=>{e.textContent=++i;if(i>=n)clearInterval(t)},700/n)});
+function pick(box,btns,i,cb){[...box.children].forEach((b,j)=>b.classList.toggle("on",j==i));cb(i)}
+function tabs(box,items,cls,cb){const el=$(box);items.forEach((x,i)=>{const b=E("button",cls,x);b.onclick=()=>pick(el,0,i,cb);el.append(b)});pick(el,0,0,cb)}
+const TL=[["Ago 2025","1.ª edición","Se realizó el 15, 16 y 17 de agosto en la misma Casona. La directora contó que recibieron cerca de 2.000 participantes, hicieron 17 talleres y tuvieron 30 marcas entre expositores y aliados."],["10 ago 2026","Terremoto","Sismo de magnitud 7,4 con epicentro en San José del Palmar (Chocó), sentido en los 64 municipios de Nariño. Según la información que recopilamos, el 20 % de los ingresos de los talleres se destinaría a familias afectadas."],["Sep 2026","Venta de stands","Cuenta regresiva en Instagram («Faltan 10 días» y «Faltan 5 días») para cerrar la segunda fase de venta, hasta el 15 de septiembre. Se publicó una ocupación del 75 %; la directora habló de un 80 % de expositores vinculados."],["Antes","Medios e inscripción","Gira de medios en radio y televisión (Canal NTV, HSB Noticias) y registro en la app SP Eventos: en una captura había 175 cupos ocupados de 2.500."],["16–18 oct","2.ª edición","Casona Taminango, Pasto. Entrada gratuita los tres días; solo cinco talleres pagos de $50.000 a $80.000."],["21 oct 2026","Informe","Entregamos este trabajo con lo vivido, los conceptos del curso y el balance del evento."]];
+TL.forEach((t,i)=>{const b=E("button","",`<small>${t[0]}</small><br><b>${t[1]}</b>`);b.onclick=()=>pick($("#tl"),0,i,s=>$("#tld").innerHTML=`<h3>${TL[s][1]}</h3><p>${TL[s][2]}</p>`);$("#tl").append(b)});pick($("#tl"),0,0,s=>$("#tld").innerHTML=`<h3>${TL[s][1]}</h3><p>${TL[s][2]}</p>`);
+const D=[["Viernes 16","Llegamos a las 8:45 a. m. y alistamos los sitios: sillas, micrófonos, sonido y proyector. A las 10:00 empezó el taller «En mi familia, el buen trato también se aprende», sobre respeto, cuidado y buen trato. Almorzamos por turnos de unos 20 minutos y luego hicimos bienvenida e ingreso.","Stands bien distribuidos: cosmética natural, quiropraxia, masajes de pies, bebidas energizantes, libros y turismo. Lo que más nos gustó fue el trato amable de los expositores, algunos con emprendimientos desde sus casas."],["Sábado 17","Empezamos a las 8:30 a. m. y nos repartieron funciones: registro y salones. El registro se hacía en carpas con el internet de Sistemas Palacios. Obligatorios: nombre, apellido y celular; opcionales: edad, cargo y empresa. El QR llegaba al WhatsApp y con él se entraba. Para talleres pagos había que transferir $50.000 u $80.000.","Anotábamos a mano a quienes entraban al auditorio y a los dos salones del segundo piso. Hubo lives de expositores y radialistas, música variada en la entrada, café con ojos tapados, danzas de la India, cannabis medicinal y charlas de emprendimiento."],["Domingo 18","Nos reunimos con el grupo de logística. Sara Calderón, la persona a cargo, nos ubicó en cada función con instrucciones claras para cada presentación. En la entrada separábamos a quienes tenían actividades pagas de quienes iban a las gratuitas, como las de los niños.","Una presentación trató sobre la Tierra, el agua y la conexión con la naturaleza, con velas, piedras y esencias. Hubo danza india con muchos espectadores y stands de comida, café, quiropraxia y masajes, todos con carteles."]];
+tabs("#dt",D.map(d=>d[0]),"",i=>$("#db").innerHTML=`<p>${D[i][1]}</p><p style="color:var(--mut)">${D[i][2]}</p>`);
+const F=[["Alistamiento de salones","Organizar sillas, micrófonos, sonido y proyector (viernes)."],["Bienvenida e ingreso","Recibir y orientar a los visitantes, con turnos de reemplazo (viernes a domingo)."],["Registro","Registrar en carpas con datos obligatorios y opcionales; el QR llegaba por WhatsApp (sábado y domingo)."],["Control de ingreso","Escanear el QR, anotar listas a mano y separar pagos de gratuitos (sábado y domingo)."],["Apoyo en presentaciones","Estar pendientes de cada detalle según la coordinadora (domingo)."],["Observación","Ver stands, atención de expositores y ambiente (los tres días)."]];
+F.forEach((f,i)=>{const b=E("button","chip"+(i?"":" on"),f[0]);b.onclick=()=>{pick($("#fc"),0,i,s=>$("#fd").textContent=F[s][1])};$("#fc").append(b)});$("#fd").textContent=F[0][1];
+const S=[["🚪","Entrada","Llegada y bienvenida. Dos parlantes con música variada crean ambiente. Hacíamos turnos de reemplazo."],["📝","Registro","En carpas, con el internet de Sistemas Palacios. El sistema envía el QR por WhatsApp. El registro manual quedó como apoyo."],["💳","Pagos y gratuitos","Separamos a quienes tenían actividades pagas (transferencia con comprobante) de quienes entraban gratis."],["🛍️","Stands","Cosmética natural, café, comida, quiropraxia, masajes y experiencias."],["🎤","Salones","Auditorio en el primer piso y dos salones en el segundo, con sonido, bafle, micrófono y videobeam."]];
+S.forEach((s,i)=>{const b=E("button","",`<span>${s[0]}</span>${s[1]}`);b.onclick=()=>pick($("#st"),0,i,x=>$("#sd").innerHTML=`<h3>${S[x][1]}</h3><p>${S[x][2]}</p>`);$("#st").append(b)});pick($("#st"),0,0,x=>$("#sd").innerHTML=`<h3>${S[x][1]}</h3><p>${S[x][2]}</p>`);
+const P=[["Vie","10:00 a. m.","En mi familia, el buen trato también se aprende","Salón Holístico",0],["Vie","11:00 a. m.","De empleada a empresaria","Salón Vital",0],["Vie","2:00 p. m.","Música, cerebro y bienestar","Auditorio",0],["Vie","5:00 p. m.","Sanando las heridas de la infancia","Sala no asignada",50],["Sáb","9:00 a. m.","Actividad física","Salón Bienestar",0],["Sáb","10:00 a. m.","Hablemos de menopausia","Salón Armonía",0],["Sáb","10:00 a. m.","IA (taller de turismo)","Salón Vital",0],["Sáb","11:00 a. m.","Cómo manejar el acoso escolar","Sala no asignada",50],["Sáb","2:00 p. m.","Cannabis medicinal","Salón Vital",0],["Sáb","2:00 p. m.","Emprender con propósito y conexión","Salón Holístico",0],["Sáb","3:00 p. m.","Equipos que suman","Sala no asignada",80],["Sáb","3:00 p. m.","Habitarte de nuevo","Salón Holístico",0],["Sáb","5:00 p. m.","Entre lo humano y lo divino; Danza de la India","Salón Bienestar",0],["Dom","9:00 a. m.","Nutrición deportiva","Salón Bienestar",0],["Dom","10:00 a. m.","Crear, creer, manifestar","Auditorio",80],["Dom","11:00 a. m.","Danza terapéutica Satvica","Salón Vital",0],["Dom","11:00 a. m.","Taller para familias gestantes y lactantes","Salón Holístico",0],["Dom","2:00 p. m.","Lectura para niños: Hora del cuento","Salón Creativo",0],["Dom","3:00 p. m.","Reconecta con tu propósito de vida","Auditorio",80],["Dom","4:00 p. m.","Ponle power a tus canas","Salón Holístico",0],["Dom","5:00 p. m.","Muestra de danza (kathak y Bollywood)","Sala no asignada",0]];
+let fd="Todos",fv="Todas";
+function ra(){const l=P.filter(p=>(fd=="Todos"||p[0]==fd)&&(fv=="Todas"||(fv=="Gratis"?!p[4]:!!p[4])));$("#act").innerHTML=l.map(p=>`<div class="a${p[4]?" p":""}"><span class="badge">${p[4]?"$"+p[4]+".000":"Gratis"}</span><small>${p[0]} · ${p[1]}</small><b>${p[2]}</b><small>📍 ${p[3]}</small></div>`).join("")||"<p>Sin resultados.</p>"}
+function chips(box,items,set){items.forEach((x,i)=>{const b=E("button","chip"+(i?"":" on"),x);b.onclick=()=>{pick($(box),0,i,()=>set(x));ra()};$(box).append(b)})}
+chips("#f1",["Todos","Vie","Sáb","Dom"],x=>fd=x);chips("#f2",["Todas","Gratis","Paga"],x=>fv=x);ra();
+$("#cmp").innerHTML="<tr><th>Aspecto</th><th>1.ª (ago. 2025)</th><th>2.ª (oct. 2026)</th></tr>"+[["Fechas","15, 16 y 17 de agosto","16, 17 y 18 de octubre"],["Participación","Cerca de 2.000, según la directora","Sin cifra oficial; 2.500 cupos en la app"],["Talleres","17 talleres","22 actividades: 17 gratuitas y 5 pagas"],["Marcas","30 entre expositores y aliados","Cerca del 80 % de stands vinculado antes"],["Entrada","Gratuita","Gratuita; solo 5 talleres pagos de $50.000 a $80.000"],["Inscripción","Manual","Digital con QR; manual como apoyo"],["Aliados","Cámara de Comercio","Cámara de Comercio, Sistemas Palacios, SENA, ONU Mujeres, Vitasana, Canal NTV y Turismo de Nariño"]].map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+const m=n=>"$"+(n/1e6).toFixed(1).replace(".",",")+" millones";
+function sim(){const bo=$("#bo").checked,sp=+$("#sp").value,pa=+$("#pa").value,tc=+$("#tc").value;$("#sv").textContent="$"+sp.toLocaleString("es-CO");$("#pv").textContent=pa;$("#tv").textContent=tc;
+const ing=(bo?20e6:0)+40*sp+pa*4e6+tc*5e4+6e6+4.5e6,cos=60.5e6,u=ing-cos;$("#mi").style.width=Math.min(100,ing/110e6*100)+"%";$("#mc").style.width=Math.min(100,cos/110e6*100)+"%";
+$("#rs").innerHTML=`Ingresos ${m(ing)} · Resultado <span class="${u>=0?"pos":"neg"}">${u>=0?"+":"−"}${m(Math.abs(u))}</span>`;
+$("#rt").textContent=u<0?"No se cubren los costos. Una feria con entrada gratuita depende mucho de los aliados y de los expositores.":"Cubre los costos. Margen de utilidad: "+(u/ing*100).toFixed(1).replace(".",",")+" %."}
+["bo","sp","pa","tc"].forEach(i=>$("#"+i).oninput=sim);sim();
+const G=[["Stands bien distribuidos y expositores amables","La gente encontraba lo que buscaba y el trato cordial hizo que el visitante se sintiera bien atendido."],["Registro digital con QR","Agilizó el ingreso y el registro manual sirvió de respaldo."],["Salones equipados","Cada salón tenía sonido, bafle, micrófono y videobeam."],["Difusión en vivo","Expositores y medios hicieron lives en Instagram y TikTok."],["Programación variada","Muchas actividades gratuitas para distintos públicos."],["Equipo por funciones","Trabajo con una coordinadora el domingo y turnos de almuerzo que mantuvieron cubiertos ingreso y registro."]],M=[["Guía de atención para expositores","Una breve guía de atención y de cómo promocionar sus experiencias."],["Una sola base de datos","Pasar los datos anotados a mano a la base digital, para no tener dos listas."],["Probar equipos","Revisar los computadores de los expositores antes de cada sesión."],["Información completa en la app","4 de las 22 actividades figuraban con «sala no asignada» y varias sin conferencista ni descripción."],["Cronograma por escrito","Compartir cronograma y funciones desde el primer día; una intranet ayudaría."],["Verificar pagos antes del QR","Evita demoras en la entrada. También cuidar que la música de la entrada no interfiera con los salones."]];
+[[G,"#gd","g"],[M,"#mj","m"]].forEach(([a,b,c])=>a.forEach(x=>{const d=E("div","fl "+c,`<b>${x[0]}</b><div>${x[1]}</div>`);d.onclick=()=>d.classList.toggle("open");$(b).append(d)}));
+[["R1","Falla de internet o de la app (QR) que frene pagos e ingresos","Enlace de respaldo, efectivo y registro manual."],["R2","Retraso o cancelación de un conferencista","Confirmar el viaje y tener plan de reprogramación."],["R3","Poca asistencia a los talleres","Promocionar e inscribir con anticipación."],["R4","Incidente con un asistente en un taller sensible","Personal capacitado y ruta de apoyo."],["R5","Salas llenas","Controlar el aforo con listas."],["R6","Proveedores de montaje que se atrasan","Contrato con tiempos y montaje anticipado."],["R7","Mal manejo de residuos","Puntos ecológicos y una persona responsable."]].forEach(r=>$("#rk").append(E("div","risk",`<b>${r[0]} · ${r[1]}</b><br><span style="color:var(--mut)">Qué hacer: ${r[2]}</span>`)));
+["La feria funciona como una cadena de servicio: lo que recibe el expositor influye en lo que percibe el visitante.","Los clientes fueron muy distintos y cada uno necesitó una atención diferente.","Los proveedores críticos (internet, sede y conferencistas) necesitan plan de respaldo.","Los canales digitales y presenciales funcionaron mejor porque estaban conectados.","El servicio y la calidad se planean antes y se miden después.","ECR mostró que si registro, equipo, salones y expositores comparten información, la respuesta es más rápida.","El marketing fue multicanal e inclusivo, con una causa social como valor adicional.","La mayor parte de los medios virtuales fue Internet; faltan una intranet para el equipo y una extranet para expositores.","Con entrada gratuita, la rentabilidad depende de stands, patrocinios y talleres pagos: sin boletería, nuestro ejercicio base daba −$2.500.000."].forEach(t=>$("#cc").append(E("li","",t)));
+</script></body></html>

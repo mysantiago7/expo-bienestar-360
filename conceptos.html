@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conceptos · Expo Bienestar 360</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f8f6;--card:#fff;--ink:#12302b;--mut:#51706a;--pri:#0f766e;--acc:#d97706;--soft:#d9efe9;--line:#cfe2dc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1a17;--card:#12272293;--ink:#e6f4f0;--mut:#9dbab3;--pri:#2dd4bf;--acc:#fbbf24;--soft:#16413b;--line:#24493f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1a17;--card:#122722;--ink:#e6f4f0;--mut:#9dbab3;--pri:#2dd4bf;--acc:#fbbf24;--soft:#16413b;--line:#24493f;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;gap:4px;align-items:center;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+nav b{color:var(--pri);margin-right:10px;font-family:Fraunces,serif}nav a{color:var(--mut);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:14px}nav a:hover{background:var(--soft);color:var(--ink)}
+nav button{margin-left:auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 12px;cursor:pointer}
+.hero{padding:70px 20px 60px;text-align:center;background:linear-gradient(135deg,#0f766e,#115e59 55%,#92400e);color:#fff}
+.hero h1{font-size:clamp(30px,6vw,56px);font-weight:800;max-width:900px;margin:0 auto 14px}.hero p{max-width:720px;margin:0 auto 22px;opacity:.92}
+.tag{display:inline-block;background:#ffffff26;border:1px solid #ffffff55;padding:5px 14px;border-radius:99px;font-size:13px;margin:4px}
+.wrap{max-width:1050px;margin:0 auto;padding:54px 20px 0}.wrap>p.lead{color:var(--mut);max-width:760px}
+h2{font-size:clamp(24px,4vw,34px);color:var(--pri)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:20px 0}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 10px;text-align:center;cursor:pointer;font:inherit;color:var(--ink);transition:.2s}
+.cc:hover,.cc.on{transform:translateY(-3px);border-color:var(--pri);box-shadow:0 8px 22px #0f766e30;background:var(--soft)}.cc span{display:block;font-size:28px}.cc b{font-size:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--acc);border-radius:16px;padding:24px;min-height:150px}
+.panel h3{color:var(--pri)}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
+.box{background:var(--soft);border-radius:12px;padding:14px}.box small{display:block;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700;font-size:11px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:99px;cursor:pointer;font:inherit}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+input[type=range]{width:100%;accent-color:var(--pri)}label{font-size:14px;color:var(--mut);display:block;margin-top:10px}
+.meter{height:16px;border-radius:99px;background:var(--soft);overflow:hidden}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--acc));transition:width .4s}
+.res{font-size:22px;font-weight:700;margin-top:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--pri)}.sc{overflow-x:auto}
+.bars div{display:flex;align-items:center;gap:10px;margin:8px 0}.bars span{width:110px;font-size:14px}.bars .meter{flex:1}.bars em{width:60px;font-style:normal;font-weight:700}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.opt.ok{background:#16a34a33;border-color:#16a34a}.opt.no{background:#dc262633;border-color:#dc2626}
+input[type=search]{width:100%;padding:12px 16px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+dl{margin:14px 0}dt{font-weight:700;color:var(--pri);margin-top:12px}dd{margin:2px 0 0;color:var(--mut)}
+footer{margin-top:60px;padding:36px 20px;background:#0f766e;color:#fff;text-align:center}footer p{margin:4px auto;max-width:700px}
+</style></head><body>
+<nav><b>Expo Bienestar 360</b><a href="#c">Conceptos</a><a href="#s">Satisfacción</a><a href="#p">Proveedores</a><a href="#m">Medios virtuales</a><a href="#q">Quiz</a><a href="#g">Glosario</a><button id="th" aria-label="Cambiar tema">◐</button></nav>
+<header class="hero"><span class="tag">SENA · Tecnólogo en Gestión Logística</span><span class="tag">Pasto, Nariño · 2026</span>
+<h1>Conceptos de logística y servicio vistos en una feria real</h1>
+<p>Clientes, proveedores, canales, calidad, ECR, marketing, costos y medios virtuales, explicados con lo que vivimos como apoyo logístico en Expo Bienestar 360 (Casona Taminango, 16 al 18 de octubre de 2026).</p>
+<p><b>Elaborado por Diana Carmela Miramag · Erika Alexandra Luna · Santiago Maya</b></p></header>
+
+<section class="wrap" id="c"><h2>1. Los conceptos del curso</h2><p class="lead">Toca cada concepto para ver qué es, dónde lo vimos en la feria y cómo se aplica a la logística.</p>
+<div class="grid" id="grid"></div><div class="panel" id="panel"></div></section>
+
+<section class="wrap" id="s"><h2>2. Servicio al cliente: la satisfacción</h2>
+<p class="lead">La satisfacción depende de comparar lo que la persona esperaba con lo que recibió: <b>satisfacción = percepción − expectativa</b>. Mueve los controles.</p>
+<div class="card"><label>Expectativa del visitante: <b id="ev">8</b>/10</label><input type="range" id="ex" min="1" max="10" value="8">
+<label>Percepción de lo recibido: <b id="pv">6</b>/10</label><input type="range" id="pe" min="1" max="10" value="6">
+<div class="res" id="sr"></div><p id="st" style="color:var(--mut)"></p></div>
+<div class="card"><h3>Reclamos por niveles</h3><div class="tabs" id="lv"></div><div id="lvb"></div></div></section>
+
+<section class="wrap" id="p"><h2>3. Proveedores: matriz de selección</h2>
+<p class="lead">Ejemplo con puntajes inventados para tres proveedores de montaje. Cambia el peso de cada criterio y mira quién gana. No conviene decidir solo por precio: uno barato puede traer retrasos, devoluciones o daños.</p>
+<div class="card"><div id="ws"></div><div class="bars" id="wb"></div><p id="wm" style="font-weight:700"></p></div>
+<div class="card sc"><h3>Qué tan crítico es cada proveedor</h3><table><tr><th>Proveedor</th><th>Nivel</th><th>Plan B sugerido</th></tr>
+<tr><td>Sistemas Palacios (internet y app)</td><td>Crítico</td><td>Segundo enlace o datos móviles; registro manual</td></tr>
+<tr><td>Casona Taminango (sede)</td><td>Crítico</td><td>Contrato con fechas, aforo y horarios de montaje</td></tr>
+<tr><td>Conferencistas</td><td>Crítico</td><td>Confirmar viaje y tener taller de reemplazo</td></tr>
+<tr><td>Sonido y videobeam</td><td>Importante</td><td>Equipo de reserva y prueba el día anterior</td></tr>
+<tr><td>Medios de comunicación</td><td>Importante</td><td>Contenido propio en redes</td></tr>
+<tr><td>Aseo y residuos</td><td>Rutinario</td><td>Plan de recolección y separación</td></tr></table></div></section>
+
+<section class="wrap" id="k"><h2>4. Canales y marketing</h2>
+<p class="lead">Un canal es el camino por el que llegan la información, la venta y la atención. Funcionaron juntos (omnicanal). Elige uno.</p>
+<div class="card"><div class="tabs" id="ct"></div><div id="cb"></div></div>
+<div class="card"><h3>Tipos de publicidad en la feria</h3><div class="row" id="pub"></div></div></section>
+
+<section class="wrap" id="m"><h2>5. Medios virtuales: Internet, Intranet y Extranet</h2>
+<div class="card"><div class="tabs" id="mt"></div><div id="mb"></div></div></section>
+
+<section class="wrap" id="f"><h2>6. Costos y rentabilidad</h2>
+<p class="lead">Ejercicio académico con valores imaginarios (dos días, 40 expositores, 2.500 visitantes). Costos base: $60.500.000.</p>
+<div class="card"><label>Ingresos estimados: <b id="iv"></b></label><input type="range" id="ing" min="40" max="110" value="78">
+<div class="meter" style="margin-top:12px"><i id="im"></i></div><div class="res" id="ir"></div><p id="it" style="color:var(--mut)"></p>
+<p style="color:var(--mut);font-size:14px">Fórmulas: utilidad = ingresos − costos · margen = utilidad ÷ ingresos × 100. Con $78 millones el margen es 22,4 %. Sin boletería (entrada gratuita) el resultado base queda en −$2.500.000.</p></div></section>
+
+<section class="wrap" id="q"><h2>7. Pon a prueba lo aprendido</h2><div class="card" id="quiz"></div></section>
+<section class="wrap" id="g"><h2>8. Glosario</h2><input type="search" id="gs" placeholder="Buscar término…"><dl id="gl"></dl></section>
+
+<footer><h3>Expo Bienestar 360 · Trabajo final</h3><p><b>Elaborado por Diana Carmela Miramag, Erika Alexandra Luna y Santiago Maya</b></p><p>SENA · Centro Internacional de Producción Limpia Lope · Tecnólogo en Gestión Logística · Pasto, 21 de octubre de 2026</p><p style="opacity:.8;font-size:13px">Los costos y las matrices son ejercicios académicos con valores imaginarios.</p></footer>
+
+<script>
+const $=s=>document.querySelector(s),E=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h)e.innerHTML=h;return e};
+const fmt=n=>"$"+Math.round(n).toLocaleString("es-CO");
+$("#th").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"};
+function tabs(id,items,show){const t=$(id);items.forEach((x,i)=>{const b=E("button",i?"":"on",x[0]);b.onclick=()=>{t.querySelectorAll("button").forEach(y=>y.classList.remove("on"));b.classList.add("on");show(x)};t.append(b)});show(items[0])}
+const C=[["🧑‍🤝‍🧑","Cliente","Quien recibe un producto, servicio o información. Hay consumidores finales, profesionales, corporativos, institucionales, expositores y distribuidores. También existen clientes internos: logística era cliente de comunicaciones (la agenda) y de registro (la lista de inscritos).","Visitantes, asistentes a talleres y expositores que pagaron un stand.","Si un área interna falla, el error llega al visitante."],
+["📦","Proveedor","Quien entrega lo necesario para operar el evento.","Internet de Sistemas Palacios, sonido, mobiliario, la sede y los conferencistas.","Los proveedores críticos necesitan plan B."],
+["🔗","Intermediario","Quien conecta a la organización con el público.","Medios, Cámara de Comercio, creadoras de contenido y radialistas.","Si comunican mal el horario, baja la asistencia."],
+["🛤️","Canal","Camino por el que se informa, vende o atiende.","Instagram, WhatsApp, la app SP Eventos, los stands y los medios regionales.","Todos los canales deben dar la misma información (precio, cupo, horario)."],
+["💬","Asesoría","Orientación para elegir o usar algo con más confianza: preventiva, técnica, profesional, comercial, para expositores y de posventa.","Charlas y consultas con terapeutas, nutricionistas y expositores.","En salud, la educación general no es un diagnóstico médico ni promete resultados."],
+["🤝","Relaciones públicas","Cuidar la relación con aliados, medios y público para que el evento sea confiable.","Gira de medios, alianzas con Cámara de Comercio, SENA y ONU Mujeres, trato de los expositores.","Un buen saludo y lenguaje claro hacen que el visitante quiera volver."],
+["🛎️","Servicio al cliente","Atención antes, durante y después del evento.","Bienvenida, registro, ayuda con el QR y atención de dudas.","Punto de información, quejas por niveles y protección de datos personales."],
+["✅","Calidad","Cumplir lo prometido, bien y a tiempo, a lo largo de todo el recorrido. ISO 9001: enfoque al cliente, gestión por procesos y mejora continua.","Salones listos, sonido que funcionaba y programación cumplida.","Se planea antes y se mide después con indicadores."],
+["⚡","ECR","Respuesta eficiente al consumidor: todos los actores colaboran para responder rápido a lo que necesita, evitando trabajo repetido.","Registro, salones y expositores conectados por el QR y la app.","Datos compartidos aceleran la respuesta al visitante."],
+["📣","Marketing","Conecta necesidades de las personas con lo que ofrece una marca. Fue multicanal: televisión, redes, WhatsApp, aliados y publicidad en el lugar.","Entrada gratuita, cuenta regresiva en Instagram, lives, marketing experiencial.","Una causa social aporta valor adicional a la marca."],
+["💰","Costos y rentabilidad","Relación entre ingresos (stands, patrocinios, talleres, publicidad) y costos (recinto, montaje, sonido, personal).","Entrada gratuita: depende de aliados y expositores.","Diversificar ingresos y reservar 10 % para imprevistos."]];
+C.forEach((c,i)=>{const b=E("button","cc",`<span>${c[0]}</span><b>${c[1]}</b>`);b.onclick=()=>{document.querySelectorAll(".cc").forEach(x=>x.classList.remove("on"));b.classList.add("on");$("#panel").innerHTML=`<h3>${c[0]} ${c[1]}</h3><p>${c[2]}</p><div class="row"><div class="box"><small>En la feria</small>${c[3]}</div><div class="box"><small>Idea clave logística</small>${c[4]}</div></div>`};$("#grid").append(b);if(!i)b.click()});
+function sat(){const e=+$("#ex").value,p=+$("#pe").value,d=p-e;$("#ev").textContent=e;$("#pv").textContent=p;$("#sr").textContent="Satisfacción = "+p+" − "+e+" = "+(d>0?"+":"")+d;$("#st").textContent=d<0?"Insatisfacción: la experiencia quedó por debajo de lo esperado (por ejemplo, un taller que empieza 30 minutos tarde).":d==0?"Satisfacción: se cumplió lo prometido (por ejemplo, entrar con el QR en pocos minutos).":"Cliente encantado: se superó la expectativa (por ejemplo, alguien acompaña el registro)."}
+$("#ex").oninput=$("#pe").oninput=sat;sat();
+tabs("#lv",[["1. Punto de atención","Anfitrión del equipo de apoyo · Inmediato · Dudas de ubicación, horario o cupo."],["2. Coordinación","Coordinador de logística · El mismo día · Cobros, fallas de pago o del QR."],["3. Dirección","Organización · Máximo 24 horas · Reclamos formales y compensaciones."],["Cierre","Servicio al cliente · Después del evento · Registrar el caso y corregir la causa."]],x=>$("#lvb").textContent=x[1]);
+const cr=[["Calidad",30,90,80,70],["Cumplimiento (OTIF)",25,85,90,65],["Costo total",20,70,85,95],["Servicio postventa",15,80,75,60],["Sostenibilidad",10,75,70,80]],W=cr.map(r=>r[1]);
+cr.forEach((r,i)=>{const l=E("label","",`${r[0]}: <b id="w${i}">${r[1]}</b> %`),s=E("input");s.type="range";s.min=0;s.max=60;s.value=r[1];s.oninput=()=>{W[i]=+s.value;$("#w"+i).textContent=s.value;calc()};$("#ws").append(l,s)});
+function calc(){const T=W.reduce((a,b)=>a+b,0)||1,n=["Proveedor A","Proveedor B","Proveedor C"],sc=[0,1,2].map(j=>cr.reduce((a,r,i)=>a+W[i]*r[2+j],0)/T);$("#wb").innerHTML=sc.map((v,j)=>`<div><span>${n[j]}</span><div class="meter"><i style="width:${v}%"></i></div><em>${v.toFixed(2)}</em></div>`).join("");const m=Math.max(...sc),g=n.filter((_,j)=>Math.abs(sc[j]-m)<.005);$("#wm").textContent=g.length>1?"Empate: "+g.join(" y ")+". Con los pesos del curso, A y B empatan en 81,75.":"Mayor puntaje: "+g[0]}
+calc();
+tabs("#ct",[["Instagram","Programación, videos de expositores, cuenta regresiva y avisos. Resultado: difusión y confianza. La cuenta @expobienestar360 mostraba 828 seguidores en la captura."],["WhatsApp","Línea de la organización para dudas, pagos y enlace de inscripción. Resultado: atención directa."],["App SP Eventos","Registro, reserva de cupos y código QR. Resultado: control del ingreso y datos de los asistentes."],["Presencial","Carpas de registro, stands, salones y punto de ayuda. Resultado: contacto, ventas y experiencia."],["Medios regionales","Radio, televisión y prensa. Resultado: reconocimiento y convocatoria."],["Alianzas","Cámara de Comercio, SENA, ONU Mujeres y Turismo de Nariño. Resultado: credibilidad y alcance."]],x=>$("#cb").innerHTML=`<h3>${x[0]}</h3><p>${x[1]}</p><p style="color:var(--mut)">Recorrido típico: Instagram → WhatsApp → enlace → registro en SP Eventos → pago opcional → QR para entrar.</p>`);
+[["📻 Masiva","Radio, prensa y televisión: alcance amplio, incluso para quienes no usan redes."],["📱 Digital","Instagram, WhatsApp, TikTok y la app: segmentación y medición."],["🪧 Exterior","Afiches, pendones y señalización en zonas de paso."],["🎬 Contenidos","Videos, testimonios y consejos que generan confianza."],["🎯 Directo","Mensajes por WhatsApp a las personas inscritas."],["☕ Experiencial","Café con ojos tapados, yoga, spa y danzas: la persona vive el producto."]].forEach(p=>$("#pub").append(E("div","box",`<b>${p[0]}</b><br>${p[1]}`)));
+tabs("#mt",[["🌐 Internet","<b>Red mundial, pública y abierta.</b> Accede cualquier persona. Sirve para comunicarse, promocionar, vender y pagar. <i>La vitrina pública.</i><br><br><b>En la feria:</b> Instagram, WhatsApp, la app SP Eventos con QR, lives de expositores, transmisiones de radialistas y el internet de Sistemas Palacios en las carpas."],["🏢 Intranet","<b>Red privada interna de una organización.</b> Acceden empleados o personas autorizadas. Sirve para compartir documentos, horarios, formularios y tareas. <i>La oficina digital interna.</i><br><br><b>En la feria:</b> no hubo evidencia; las funciones se repartían de forma presencial. <b>Mejora:</b> carpeta o grupo privado con cronograma, funciones, turnos, contactos y formato de reclamos."],["🔐 Extranet","<b>Extensión segura de la intranet para externos.</b> Acceden clientes, proveedores y socios autorizados. Comparte información seleccionada sin abrir todo. <i>Una sala de trabajo privada con aliados.</i><br><br><b>En la feria:</b> solo de forma parcial (destacados de Expositores y Aliados). <b>Mejora:</b> portal privado con plano de stands, energía, catálogo y contratos."]],x=>$("#mb").innerHTML=`<h3>${x[0]}</h3><p>${x[1]}</p>`);
+function fin(){const v=+$("#ing").value,u=v-60.5;$("#iv").textContent="$"+v+" millones";$("#im").style.width=Math.min(100,v/110*100)+"%";$("#ir").textContent=(u>=0?"Utilidad ":"Pérdida ")+"$"+Math.abs(u).toFixed(1)+" millones · margen "+(u/v*100).toFixed(1)+" %";$("#it").textContent=u<0?"Con estos ingresos no se cubren los costos: hay que sumar stands, patrocinios o cupos pagos.":"Cubre los costos con margen para imprevistos."}
+$("#ing").oninput=fin;fin();
+const Q=[["¿Qué es un canal?",["Quien entrega insumos","Camino por el que se informa, vende o atiende","Una norma de calidad"],1],["¿Cuál medio virtual es público y abierto?",["Internet","Intranet","Extranet"],0],["¿Quién tiene acceso a una Extranet?",["Cualquier persona","Solo el personal interno","Clientes, proveedores y socios autorizados"],2],["Si la percepción (6) es menor que la expectativa (8), hay…",["Satisfacción","Insatisfacción","Cliente encantado"],1],["¿Qué busca ECR?",["Que los actores colaboren para responder rápido al consumidor","Subir precios","Cerrar canales"],0]];let qi=0,pts=0;
+function rq(){const q=Q[qi],c=$("#quiz");if(!q){c.innerHTML=`<h3>Resultado: ${pts}/${Q.length}</h3><p>${pts>=4?"¡Excelente! Dominas los conceptos.":"Repasa los conceptos de arriba y vuelve a intentarlo."}</p>`;const b=E("button","opt","Reiniciar");b.onclick=()=>{qi=0;pts=0;rq()};c.append(b);return}
+c.innerHTML=`<small>Pregunta ${qi+1} de ${Q.length}</small><h3>${q[0]}</h3>`;q[1].forEach((o,i)=>{const b=E("button","opt",o);b.onclick=()=>{c.querySelectorAll(".opt").forEach((x,j)=>{x.disabled=1;x.classList.add(j==q[2]?"ok":"no");if(j!=q[2]&&j!=i)x.classList.remove("no")});if(i==q[2])pts++;const n=E("button","opt","Siguiente →");n.onclick=()=>{qi++;rq()};c.append(n)};c.append(b)})}
+rq();
+const G=[["Logística","Procesos que planifican, organizan y controlan el flujo de personas, productos, información y recursos desde su origen hasta su destino."],["Captura de leads","Obtener datos de personas interesadas (nombre, teléfono, empresa) para hacerles seguimiento."],["Networking","Crear y fortalecer relaciones entre personas, empresas y aliados."],["Analítica de eventos","Recoger y analizar datos para medir asistentes, visitas a stands y satisfacción."],["Innovación digital","Usar nuevas tecnologías para mejorar procesos, servicios o experiencias."],["Plataforma virtual","Software que permite hacer reuniones, clases, eventos, ferias o ventas en línea."],["Evento híbrido","Combina participación presencial y virtual, con actividades pensadas para cada público."],["Feria virtual","Espacio digital que simula una feria, con stands virtuales, catálogos, videos y chats."],["Omnicanal","Varios canales trabajando de forma coordinada para dar la misma información."],["OTIF","Entrega a tiempo y completa (On Time In Full): mide el cumplimiento del proveedor."]];
+function gl(q=""){$("#gl").innerHTML=G.filter(g=>(g[0]+g[1]).toLowerCase().includes(q.toLowerCase())).map(g=>`<dt>${g[0]}</dt><dd>${g[1]}</dd>`).join("")||"<dd>Sin resultados.</dd>"}
+$("#gs").oninput=e=>gl(e.target.value);gl();
+</script></body></html>
